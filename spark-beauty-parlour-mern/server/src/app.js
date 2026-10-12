@@ -17,7 +17,18 @@ app.set('trust proxy', 1);
 
 app.use(helmet());
 app.use(compression());
-app.use(cors({ origin: cfg.clientUrl, credentials: true }));
+// Temporary: Allow all origins for debugging
+app.use(cors({ 
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    // Allow all origins temporarily for debugging
+    callback(null, true);
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json({ limit: '10kb' }));
 app.use(cookieParser());
 if (cfg.env !== 'test') app.use(morgan('tiny'));
