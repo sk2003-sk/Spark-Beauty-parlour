@@ -4,7 +4,7 @@ import axios from 'axios';
 let accessToken = null;
 export const setToken = (t) => { accessToken = t; };
 
-export const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || '/api', withCredentials: true });
+export const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'https://spark-beauty-server.onrender.com/api', withCredentials: true });
 
 api.interceptors.request.use((config) => {
   if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
