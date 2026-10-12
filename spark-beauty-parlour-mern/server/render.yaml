@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: spark-beauty-server
+    env: node
+    buildCommand: npm install
+    startCommand: node src/index.js
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        value: mongodb+srv://KalaVijay:KalaVijay02@cluster0.f7aswzu.mongodb.net/spark-beauty?retryWrites=true&w=majority
+      - key: JWT_ACCESS_SECRET
+        value: spark_beauty_access_secret_key_2024_secure_random_string
+      - key: JWT_REFRESH_SECRET
+        value: spark_beauty_refresh_secret_key_2024_secure_random_string_different
+      - key: CLIENT_URL
+        value: https://spark-beauty.vercel.app
+      - key: TIMEZONE
+        value: Asia/Kolkata
+      - key: OPEN_HOUR
+        value: 10
+      - key: CLOSE_HOUR
+        value: 20
+      - key: SLOT_CAPACITY
+        value: 2
+      - key: BOOKING_WINDOW_DAYS
+        value: 14
+      - key: ADMIN_EMAIL
+        value: kalavijay@example.com
+      - key: ADMIN_PASSWORD
+        value: KalaVijay02
+      - key: ADMIN_PHONE
+        value: 8500512643
