@@ -18,7 +18,10 @@ app.set('trust proxy', 1);
 app.use(helmet());
 app.use(compression());
 app.use(cors({
-  origin: cfg.clientUrl,
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    callback(null, true);
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
