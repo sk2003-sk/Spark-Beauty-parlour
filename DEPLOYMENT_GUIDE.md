@@ -36,7 +36,7 @@ Fill in these EXACT values:
 - Region: Singapore (ap-southeast-1) [or closest to you]
 
 **Build & Deploy:**
-- Root Directory: `spark-beauty-parlour-mern/server` (IMPORTANT: include the folder name!)
+- Root Directory: `server` (IMPORTANT: just "server", not the full path!)
 - Build Command: `npm install`
 - Start Command: `node src/index.js`
 
@@ -119,7 +119,7 @@ https://spark-beauty-server-xxxx.onrender.com
 ### Step 3: Configure the Project
 
 **Framework Preset:** Vite (should auto-detect)
-**Root Directory:** `spark-beauty-parlour-mern/client` (IMPORTANT: include the folder name!)
+**Root Directory:** `client` (IMPORTANT: just "client", not the full path!)
 **Override Directory:** Leave empty
 
 ### Step 4: Add Environment Variable
