@@ -17,14 +17,8 @@ app.set('trust proxy', 1);
 
 app.use(helmet());
 app.use(compression());
-// Temporary: Allow all origins for debugging
-app.use(cors({ 
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps, curl, etc.)
-    if (!origin) return callback(null, true);
-    // Allow all origins temporarily for debugging
-    callback(null, true);
-  },
+app.use(cors({
+  origin: cfg.clientUrl,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
